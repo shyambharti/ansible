@@ -1,0 +1,5 @@
+- name : setup front component
+  hosts:FRONTEND
+  become: yes
+  roles:
+    - frontend
