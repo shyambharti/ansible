@@ -27,15 +27,9 @@
     tasks_from: download
 
 - name: Load Schema
-  community.mongodb.mongodb-shell:
-    file: "/tmp/mongodb-main/cataloue.js"
+  community.mongodb.mongodb_shell:
+    file: "/tmp/mongodb-main/{{item}}.js"
     idempotent: yes
-    loop:
-      - cataloue
-
-- name: Load Schema
-  community.mongodb.mongodb-shell:
-    file: "/tmp/mongodb-main/user.js"
-    idempotent: yes
-    loop:
-      - user
+  loop:
+    - catalogue
+    - users
