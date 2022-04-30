@@ -28,8 +28,14 @@
 
 - name: Load Schema
   community.mongodb.mongodb-shell:
-    file: "/tmp/mongodb-main/{{item}}.js"
+    file: "/tmp/mongodb-main/cataloue.js"
     idempotent: yes
     loop:
       - cataloue
+
+- name: Load Schema
+  community.mongodb.mongodb-shell:
+    file: "/tmp/mongodb-main/user.js"
+    idempotent: yes
+    loop:
       - user
