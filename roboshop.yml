@@ -2,4 +2,4 @@
   hosts: "{{hosts}}"
   become: yes
   roles:
-    - "{{front_name}}"
+    - "{{role_name}}"
