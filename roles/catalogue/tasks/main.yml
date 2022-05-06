@@ -1,4 +1,4 @@
-- name: application setup
-  include_roles:
+- name: Application Setup
+  ansible.builtin.include_roles:
     name: common
     tasks_from: nodejs
