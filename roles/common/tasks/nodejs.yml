@@ -24,25 +24,25 @@
 		state: absent
 
 - name: Copy App Content
-become_user: roboshop
-ansible.builtin.copy:
-dest: /home/roboshop/{{COMPONENT}}/
-src: /tmp/{{COMPONENT}}-main/
-remote_src: yes
+  become_user: roboshop
+  ansible.builtin.copy:
+    dest: /home/roboshop/{{COMPONENT}}/
+    src: /tmp/{{COMPONENT}}-main/
+    remote_src: yes
 
 - name: Install NodeJS Dependencies
-community.general.npm:
-path: /home/roboshop/{{COMPONENT}}
-become_user: roboshop
+  community.general.npm:
+    path: /home/roboshop/{{COMPONENT}}
+    become_user: roboshop
 
 - name: Copy SystemD File
-ansible.builtin.copy:
-src: systemd.service
-dest: /etc/systemd/system/{{COMPONENT}}.service
+  ansible.builtin.copy:
+    src: systemd.service
+    dest: /etc/systemd/system/{{COMPONENT}}.service
 
 - name: Start {{COMPONENT}} Service
-ansible.builtin.systemd:
-name: "{{COMPONENT}}"
-state: restarted
-enabled: yes
-daemon_reload: yes
+  ansible.builtin.systemd:
+    name: "{{COMPONENT}}"
+    state: restarted
+    enabled: yes
+    daemon_reload: yes
