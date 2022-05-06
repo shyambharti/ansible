@@ -1,4 +1,4 @@
-- name: appl setup
+- name: application setup
   include_roles:
     name: common
     tasks_from: nodejs
