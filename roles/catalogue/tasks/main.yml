@@ -1,5 +1,5 @@
 - name: Application Setup
-  ansible.builtin.include_roles:
+  include_roles:
     name: common
     tasks_from: nodejs
 
