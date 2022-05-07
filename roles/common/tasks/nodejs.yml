@@ -25,29 +25,29 @@
 
 - name: CleanUp Old Content
   ansible.builtin.file:
-    path: /home/roboshop/{{COMPONENT}}
+    path: /home/roboshop/catalogue
     state: absent
 
 - name: Copy App Content
   become_user: roboshop
   ansible.builtin.copy:
-    dest: /home/roboshop/{{COMPONENT}}/
-    src: /tmp/{{COMPONENT}}-main/
+    dest: /home/roboshop/catalogue/
+    src: /tmp/catalogue-main/
     remote_src: yes
 
 - name: Install NodeJS Dependencies
   community.general.npm:
-    path: /home/roboshop/{{COMPONENT}}
+    path: /home/roboshop/catalogue
   become_user: roboshop
 
 - name: Copy SystemD File
   ansible.builtin.copy:
     src: systemd.service
-    dest: /etc/systemd/system/{{COMPONENT}}.service
+    dest: /etc/systemd/system/catalogue.service
 
-- name: Start {{COMPONENT}} Service
+- name: Start catalogue Service
   ansible.builtin.systemd:
-    name:  "{{COMPONENT}}"
+    name:  catalogue
     state: restarted
     enabled: yes
     daemon_reload: yes
