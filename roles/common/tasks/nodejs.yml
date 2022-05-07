@@ -14,7 +14,7 @@
     comment: Roboshop Project Application Use
 
 - name: Download and Extract {{COMPONENT}} Content
-  ansible.builtin.include_roles:
+  ansible.builtin.include_role:
     name: common
     tasks_from: download
 
