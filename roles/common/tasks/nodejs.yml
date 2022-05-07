@@ -8,6 +8,11 @@
     - gcc-c++
     state: installed
 
+- name: Install NodeJS Dependencies
+  community.general.npm:
+    path: /home/roboshop/{{COMPONENT}}
+  become_user: roboshop
+
 - name: Add Application User
   ansible.builtin.user:
     name: roboshop
@@ -35,10 +40,6 @@
     src: /tmp/{{COMPONENT}}-main/
     remote_src: yes
 
-- name: Install NodeJS Dependencies
-  community.general.npm:
-    path: /home/roboshop/{{COMPONENT}}
-  become_user: roboshop
 
 - name: Copy SystemD File
   ansible.builtin.copy:
