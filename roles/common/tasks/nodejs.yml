@@ -13,7 +13,12 @@
     name: roboshop
     comment: Roboshop Project Application Use
 
-- name: Download and Exract Frontend
+#- name: Download and Extract {{COMPONENT}} Content
+#  ansible.builtin.include_role:
+#    name: common
+#  tasks_from: download
+#
+- name: Download and Extract {{COMPONENT}} Content
   include_role:
     name: common
     tasks_from: download
