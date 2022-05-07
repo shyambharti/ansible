@@ -19,7 +19,7 @@
 #  tasks_from: download
 #
 - name: Download and Extract {{COMPONENT}} Content
-  include_role:
+  ansible.builtin.include_role:
     name: common
     tasks_from: download
 
