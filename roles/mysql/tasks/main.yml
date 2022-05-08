@@ -64,7 +64,7 @@
         login_user: root
         login_password: RoboShop@1
 
-- name: Download and Extract MySQL
+- name: Download and Extract MySQL component
   include_role:
     name: common
     tasks_from: download-from-github
