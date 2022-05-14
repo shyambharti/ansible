@@ -36,7 +36,7 @@ IPADDRESS=$(aws ec2 describe-instances \
 echo "IPADDRESS : " "${IPADDRESS}"
 
 SG_ID=$(aws ec2 describe-security-groups \
-          --filters Name=group-name,Values=allow-all-sgp \
+          --filters Name=group-name,Values=allow-all \
             | jq '.SecurityGroups[].GroupId' \
             | sed -e 's/"//g')
 
